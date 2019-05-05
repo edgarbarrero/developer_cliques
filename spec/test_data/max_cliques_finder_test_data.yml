@@ -1,0 +1,49 @@
+developer_graph_1:
+  # 6 - 4 - 5 \
+  #     |   |  1
+  #     3 - 2 /
+  developers:
+    one: [two, five]
+    two: [one, three, five]
+    three: [two, four]
+    four: [three, five, six]
+    five: [one, two, four]
+    six: [four]
+  max_cliques: [["two", "three"], ["two", "five", "one"], ["four", "three"], ["four", "five"], ["four", "six"], ["six", "four"]]
+developer_graph_2:
+  #    2 - 4
+  #  /  \
+  # 1 - 3
+  developers:
+    one: [two, three]
+    two: [one, three, four]
+    three: [one, two]
+    four: [two]
+  max_cliques: [["two", "one", "three"], ["two", "four"]]
+developer_graph_3:
+  #    2  - 5 - 7
+  #  / | \ /
+  # 1 - - 4 - 6
+  #  \ | /
+  #    3
+  developers:
+    one: [two, three, four]
+    two: [one, three, four, five]
+    three: [one, two, four]
+    four: [one, two, three, five, six]
+    five: [two, four, seven]
+    six: [four]
+    seven: [five]
+  max_cliques: [["four", "two", "one", "three"], ["four", "two", "five"], ["four", "six"], ["seven", "five"]]
+developer_graph_4:
+    #        two
+    #      /      \
+    # one          three
+    #      \      /
+    #        four
+  developers:
+    one: [two, four]
+    two: [one, three]
+    three: [two, four]
+    four: [one, three]
+  max_cliques: [["one", "two"], ["one", "four"], ["three", "two"], ["three", "four"]]
