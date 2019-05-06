@@ -10,7 +10,7 @@ class TwitterClient
     @client = init_client
   end
 
-  def find_conexions(handle:, handle_list:)
+  def find_connections(handle:, handle_list:)
     followers = @client.followers(handle).map(&:screen_name)
     friends   = @client.friends(handle).map(&:screen_name)
     followers & friends & handle_list

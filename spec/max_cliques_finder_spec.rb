@@ -7,8 +7,8 @@ require 'pry'
 
 describe MaxCliquesFinder do
   it '#max_clique_list returns correct max cliques developer list' do
-    # conexions will set manually instead of use #find_conexions
-    allow_any_instance_of(Developer).to receive(:find_conexions).and_return([])
+    # connections will set manually instead of use #find_connections
+    allow_any_instance_of(Developer).to receive(:find_connections).and_return([])
 
     load_data_test.each do |_, data_set|
       max_cliques = described_class.new.perform(data_set[:developer_graph])
@@ -26,7 +26,7 @@ describe MaxCliquesFinder do
 
       developers.keys.each do |dev_name|
         developer = developer_graph.find(dev_name)
-        developer.conexions = developers[dev_name].map { |d| developer_graph.find(d) }
+        developer.connections = developers[dev_name].map { |d| developer_graph.find(d) }
       end
 
       max_cliques = data['max_cliques'].map do |e|

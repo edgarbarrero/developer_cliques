@@ -9,7 +9,7 @@ describe DeveloperGraph do
 
 
   it '#find' do
-    allow_any_instance_of(DeveloperGraph).to receive(:find_conexions).and_return(nil)
+    allow_any_instance_of(DeveloperGraph).to receive(:find_connections).and_return(nil)
 
     developer = described_class.new(handle_list).find(handle)
     expect(developer).to be_a Developer

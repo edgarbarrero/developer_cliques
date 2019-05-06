@@ -12,16 +12,16 @@ describe Developer do
   let(:github_handle_list)   { %w[roberto javi rodrigo] }
   let(:twitter_handle_list)  { %w[roberto javi pedro] }
 
-  it '#find_conexions' do
-    allow_any_instance_of(DeveloperGraph).to receive(:find_conexions)
+  it '#find_connections' do
+    allow_any_instance_of(DeveloperGraph).to receive(:find_connections)
                                          .and_return(nil)
-    allow(GithubClient).to receive(:find_conexions).with(handle: handle,
+    allow(GithubClient).to receive(:find_connections).with(handle: handle,
                                                          handle_list: handle_list)
                                                    .and_return(github_handle_list)
-    allow(TwitterClient).to receive(:find_conexions).with(handle: handle,
+    allow(TwitterClient).to receive(:find_connections).with(handle: handle,
                                                           handle_list: handle_list)
                                                     .and_return(twitter_handle_list)
-    conexions = described_class.new(handle).find_conexions(developer_graph)
-    expect(conexions.map(&:handle)).to match_array %w[javi roberto]
+    connections = described_class.new(handle).find_connections(developer_graph)
+    expect(connections.map(&:handle)).to match_array %w[javi roberto]
   end
 end

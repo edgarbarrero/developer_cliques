@@ -18,15 +18,15 @@ class MaxCliquesFinder
 
     vertices.each do |v|
       bron_kerbosh(rrr: (rrr + [v]),
-                   ppp: (ppp & v.conexions),
-                   xxx: (xxx & v.conexions))
+                   ppp: (ppp & v.connections),
+                   xxx: (xxx & v.connections))
     end
     @max_cliques
   end
 
   def choose_pivot_vertex(ppp, xxx)
     possible_vertices = ppp + xxx
-    possible_vertices.max_by(&:conexions_count)
+    possible_vertices.max_by(&:connections_count)
   end
 
   def report_as_max_clique(vertices)
@@ -37,6 +37,6 @@ class MaxCliquesFinder
   def vertices_to_iterate(vertex:, collection:)
     return if vertex.nil?
 
-    collection - vertex.conexions
+    collection - vertex.connections
   end
 end

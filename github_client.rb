@@ -4,7 +4,7 @@ require 'github_api'
 
 class GithubClient
 
-  def self.find_conexions(handle:, handle_list:)
+  def self.find_connections(handle:, handle_list:)
     organizations = developer_organizations(handle)
     all_members = organization_members(organizations)
     (all_members - [handle]) & handle_list
